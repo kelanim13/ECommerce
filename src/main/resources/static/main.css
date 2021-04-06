@@ -1,0 +1,44 @@
+*
+{
+	font-family: fantasy;
+}
+
+body
+{
+	background-color: black;
+}
+
+h1,
+p,
+.caption1,
+.caption3
+{
+	color: #fff;
+}
+
+.caption
+{
+	color: #000000;	
+	
+}
+
+
+
+
+img 
+{
+    float: left;
+    width:  600px;
+    height: 600px;
+    object-fit: cover;
+}
+
+.jumbotron
+{
+	background-color: #1838b8; 
+}
+
+.card-text
+{
+	color: #000;
+}
