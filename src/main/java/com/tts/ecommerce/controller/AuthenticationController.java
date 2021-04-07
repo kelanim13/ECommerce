@@ -15,7 +15,8 @@ import com.tts.ecommerce.model.User;
 import com.tts.ecommerce.service.UserService;
 
 @Controller
-class AuthenticationController {
+class AuthenticationController 
+{
 	
   @Autowired
   private UserService userService;
@@ -47,6 +48,7 @@ class AuthenticationController {
     	  {
     		  return "signin"; 
     	  }
+    	  
           if(userService.findByUsername(user.getUsername()) == null) 
           {
         	  userService.saveNew(user);

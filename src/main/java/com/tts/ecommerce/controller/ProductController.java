@@ -17,7 +17,8 @@ import com.tts.ecommerce.service.ProductService;
 
 
 @Controller
-public class ProductController {
+public class ProductController 
+{
     @Autowired
     ProductService productService;
 

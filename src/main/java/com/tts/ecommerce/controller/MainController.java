@@ -18,7 +18,8 @@ import lombok.Data;
 @Data
 @Controller
 @ControllerAdvice 
-public class MainController {
+public class MainController 
+{
 	@Autowired
 	ProductService productService;
 	
@@ -50,6 +51,7 @@ public class MainController {
 	public String filter(@RequestParam(required = false) String category,
 						 @RequestParam(required = false) String brand,
 						 Model model) {
+		
 		List<Product> filtered = 
 		productService.findByBrandAndOrCategory(brand, category); 
 		model.addAttribute("products", filtered); 

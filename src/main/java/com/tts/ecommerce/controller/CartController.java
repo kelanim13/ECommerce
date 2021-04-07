@@ -24,7 +24,8 @@ import com.tts.ecommerce.service.UserService;
 
 @Controller
 @ControllerAdvice
-public class CartController {
+public class CartController 
+{
 
 @Autowired
 ProductService productService;
@@ -69,7 +70,8 @@ public String addToCart(@RequestParam long id)
 }
 
 @PatchMapping("/cart")
-public String updateQuantities(@RequestParam long[] id, @RequestParam int[] quantity) {
+public String updateQuantities(@RequestParam long[] id, @RequestParam int[] quantity) 
+{
 	for(int i = 0; i < id.length; i++) 
 	{
 		Product p = productService.findById(id[i]);
@@ -89,9 +91,13 @@ public String removeFromCart(@RequestParam long id)
 private void setQuantity(Product p, int quantity) 
 {
 	if(quantity > 0)
+	{
 		cart().put(p, quantity);
+	}
     else
+    {
         cart().remove(p);
+    }
 
 	userService.updateCart(cart());
   }

@@ -15,41 +15,40 @@ import com.tts.ecommerce.model.User;
 import com.tts.ecommerce.repository.UserRepository;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService implements UserDetailsService 
+{
    
 	@Autowired
     private UserRepository userRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public User findByUsername(String username) {
+    public User findByUsername(String username) 
+    {
         return userRepository.findByUsername(username);
     }
 
-    public void saveNew(User user) {
+    public void saveNew(User user) 
+    {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 
-    public void saveExisting(User user) {
+    public void saveExisting(User user) 
+    {
         userRepository.save(user);
     }
 
-    public User getLoggedInUser() {
+    public User getLoggedInUser() 
+    {
         return findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
     }
 
-    public void updateCart(Map<Product, Integer> cart) {
+    public void updateCart(Map<Product, Integer> cart) 
+    {
         User user = getLoggedInUser();
         user.setCart(cart);
         saveExisting(user);
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = findByUsername(username);
-        if(user == null) throw new UsernameNotFoundException("Username not found.");
-        return user;
     }
     
     public boolean testPassword(String password)
@@ -120,4 +119,12 @@ public class UserService implements UserDetailsService {
     }
     
     */
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException 
+    {
+        User user = findByUsername(username);
+        if(user == null) throw new UsernameNotFoundException("Username not found.");
+        return user;
+    }
  }

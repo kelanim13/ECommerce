@@ -3,7 +3,8 @@ package com.tts.ecommerce.model;
 import lombok.Data;
 
 @Data
-public class ChargeRequest {
+public class ChargeRequest 
+{
 	
 	public enum Currency {
         EUR, USD;

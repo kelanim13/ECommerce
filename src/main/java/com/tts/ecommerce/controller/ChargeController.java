@@ -15,7 +15,8 @@ import com.tts.ecommerce.service.StripeService;
 import com.tts.ecommerce.service.UserService;
 
 @Controller
-public class ChargeController {
+public class ChargeController 
+{
 
 	@Autowired
     private StripeService paymentsService;
@@ -36,12 +37,14 @@ public class ChargeController {
         User user = userService.getLoggedInUser(); 
     	user.getCart().clear(); 
     	userService.saveExisting(user);
-        return "result";
+        
+    	return "result";
     }
 
     @ExceptionHandler(StripeException.class)
     public String handleError(Model model, StripeException ex) {
         model.addAttribute("error", ex.getMessage());
+        
         return "result";
     }
 }
